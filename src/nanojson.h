@@ -12,11 +12,11 @@ typedef enum {
     NANO_STRING,
     NANO_ARRAY,
     NANO_OBJECT
-} LeptType;
+} NanoType;
 
 typedef struct { 
-    LeptType type;
-} LeptValue;
+    NanoType type;
+} NanoValue;
 
 enum {
     NANO_PARSE_OK = 0,
@@ -25,9 +25,8 @@ enum {
     NANO_PARSE_ROOT_NOT_SINGULAR
 };
 
-int nanoParse(LeptValue *plv, const std::string json);
+int nanoParse(NanoValue *pnv, const std::string &json);
 
-LeptType nanoGetType(const LeptValue *plv);
-
+NanoType nanoGetType(const NanoValue *pnv);
 
 #endif //NANOJSON_H__
