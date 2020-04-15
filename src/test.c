@@ -22,39 +22,39 @@ static int test_pass = 0;
 
 static void test_parse_null() {
     nano_value v;
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_OK, nano_parse(&v, "null"));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_OK, nano_parse(&v, "null"));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 }
 
 static void test_parse_expect_value() {
     nano_value v;
 
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_EXPECT_VALUE, nano_parse(&v, ""));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_EXPECT_VALUE, nano_parse(&v, ""));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_EXPECT_VALUE, nano_parse(&v, " "));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_EXPECT_VALUE, nano_parse(&v, " "));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 }
 
 static void test_parse_invalid_value() {
     nano_value v;
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_INVALID_VALUE, nano_parse(&v, "nul"));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_INVALID_VALUE, nano_parse(&v, "nul"));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_INVALID_VALUE, nano_parse(&v, "?"));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_INVALID_VALUE, nano_parse(&v, "?"));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 }
 
 static void test_parse_root_not_singular() {
     nano_value v;
-    v.type = nano_FALSE;
-    EXPECT_EQ_INT(nano_PARSE_ROOT_NOT_SINGULAR, nano_parse(&v, "null x"));
-    EXPECT_EQ_INT(nano_NULL, nano_get_type(&v));
+    v.type = NANO_FALSE;
+    EXPECT_EQ_INT(NANO_PARSE_ROOT_NOT_SINGULAR, nano_parse(&v, "null x"));
+    EXPECT_EQ_INT(NANO_NULL, nano_get_type(&v));
 }
 
 static void test_parse() {

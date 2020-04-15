@@ -1,17 +1,17 @@
 #ifndef nanoJSON_H__
 #define nanoJSON_H__
 
-typedef enum { nano_NULL, nano_FALSE, nano_TRUE, nano_NUMBER, nano_STRING, nano_ARRAY, nano_OBJECT } nano_type;
+typedef enum { NANO_NULL, NANO_FALSE, NANO_TRUE, NANO_NUMBER, NANO_STRING, NANO_ARRAY, NANO_OBJECT } nano_type;
 
 typedef struct {
     nano_type type;
-}nano_value;
+} nano_value;
 
 enum {
-    nano_PARSE_OK = 0,
-    nano_PARSE_EXPECT_VALUE,
-    nano_PARSE_INVALID_VALUE,
-    nano_PARSE_ROOT_NOT_SINGULAR
+    NANO_PARSE_OK = 0,
+    NANO_PARSE_EXPECT_VALUE,
+    NANO_PARSE_INVALID_VALUE,
+    NANO_PARSE_ROOT_NOT_SINGULAR
 };
 
 int nano_parse(nano_value* v, const char* json);

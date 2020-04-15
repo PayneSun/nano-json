@@ -18,17 +18,17 @@ static void nano_parse_whitespace(nano_context* c) {
 static int nano_parse_null(nano_context* c, nano_value* v) {
     EXPECT(c, 'n');
     if (c->json[0] != 'u' || c->json[1] != 'l' || c->json[2] != 'l')
-        return nano_PARSE_INVALID_VALUE;
+        return NANO_PARSE_INVALID_VALUE;
     c->json += 3;
-    v->type = nano_NULL;
-    return nano_PARSE_OK;
+    v->type = NANO_NULL;
+    return NANO_PARSE_OK;
 }
 
 static int nano_parse_value(nano_context* c, nano_value* v) {
     switch (*c->json) {
         case 'n':  return nano_parse_null(c, v);
-        case '\0': return nano_PARSE_EXPECT_VALUE;
-        default:   return nano_PARSE_INVALID_VALUE;
+        case '\0': return NANO_PARSE_EXPECT_VALUE;
+        default:   return NANO_PARSE_INVALID_VALUE;
     }
 }
 
@@ -36,7 +36,7 @@ int nano_parse(nano_value* v, const char* json) {
     nano_context c;
     assert(v != NULL);
     c.json = json;
-    v->type = nano_NULL;
+    v->type = NANO_NULL;
     nano_parse_whitespace(&c);
     return nano_parse_value(&c, v);
 }
