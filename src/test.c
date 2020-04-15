@@ -1,7 +1,11 @@
+/*
+ * test.c
+ */
+
+#include "nanojson.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "nanojson.h"
 
 static int main_ret = 0;
 static int test_count = 0;
@@ -67,5 +71,6 @@ static void test_parse() {
 int main() {
     test_parse();
     printf("%d/%d (%3.2f%%) passed\n", test_pass, test_count, test_pass * 100.0 / test_count);
+    
     return main_ret;
 }

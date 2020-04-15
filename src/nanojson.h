@@ -1,7 +1,19 @@
+/*
+ * nanojson.h
+ */
+
 #ifndef nanoJSON_H__
 #define nanoJSON_H__
 
-typedef enum { NANO_NULL, NANO_FALSE, NANO_TRUE, NANO_NUMBER, NANO_STRING, NANO_ARRAY, NANO_OBJECT } nano_type;
+typedef enum { 
+    NANO_NULL, 
+    NANO_FALSE, 
+    NANO_TRUE, 
+    NANO_NUMBER, 
+    NANO_STRING, 
+    NANO_ARRAY, 
+    NANO_OBJECT 
+} nano_type;
 
 typedef struct {
     nano_type type;
